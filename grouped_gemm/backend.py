@@ -12,7 +12,7 @@ def gmm(a: torch.Tensor,
     num_experts = batch_sizes.numel()
     
     # 计算累积和，用于拆分输入张量
-    batch_cumsum = torch.cat([torch.tensor([0], device=device), batch_sizes.cumsum(dim=0)])
+    batch_cumsum = torch.cat([torch.tensor([0]), batch_sizes.cumsum(dim=0)])
     
     # 存储所有分组的计算结果
     results = []
